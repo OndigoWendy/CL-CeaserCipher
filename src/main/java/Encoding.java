@@ -14,6 +14,7 @@ public class Encoding {
             char encodedArray[]=this.inputText.toCharArray();
             String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             for(int i=0;i<encodedArray.length;i++){
+
                 if (inputText.charAt(i) == ' ') {
                     encoded += "";
                 }

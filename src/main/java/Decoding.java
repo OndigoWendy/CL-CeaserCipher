@@ -10,14 +10,24 @@ public class Decoding {
         String decoded = " ";
         char decodedArray[]=this.inputText.toCharArray();
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
         for(int i=0;i<decodedArray.length;i++){
+            int singleAlphabet = inputText.charAt(i);
+            int charPosition = alphabet.indexOf(singleAlphabet);
+            int x = charPosition-shiftKey;
+
             if (inputText.charAt(i) == ' ') {
                 decoded += "";
             }
-            else  {
-                int charPosition = alphabet.indexOf(inputText.charAt(i));
-                int key = (charPosition-shiftKey)%26;
+            else   {
+                if (x>'Z'){
+                int key = (x)%26;
                 decoded += alphabet.charAt(key);
+             }
+                else {
+                    int key = (x)%26;
+                    decoded +=alphabet.charAt(key);
+                }
             }
         }
         return decoded.toUpperCase();
