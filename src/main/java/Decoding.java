@@ -13,23 +13,24 @@ public class Decoding {
 
         for(int i=0;i<decodedArray.length;i++){
             int singleAlphabet = inputText.charAt(i);
-            int charPosition = alphabet.indexOf(singleAlphabet);
-            int x = charPosition-shiftKey;
+           // int charPosition = alphabet.indexOf(singleAlphabet);
+          //  int x = charPosition-shiftKey;
 
             if (inputText.charAt(i) == ' ') {
-                decoded += "";
+                decoded += " ";
             }
-            else   {
-                if (x>'Z'){
-                int key = (x)%26;
-                decoded += alphabet.charAt(key);
-             }
-                else {
-                    int key = (x)%26;
-                    decoded +=alphabet.charAt(key);
+            else  {
+                int charPosition = alphabet.indexOf(inputText.charAt(i));
+                int key = (charPosition-shiftKey)%26;
+                if(key<0){
+                    key=alphabet.length()+key;
                 }
+
+                decoded += alphabet.charAt(key);
             }
         }
+
+
         return decoded.toUpperCase();
     }
 

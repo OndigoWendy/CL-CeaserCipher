@@ -16,7 +16,7 @@ public class Encoding {
             for(int i=0;i<encodedArray.length;i++){
 
                 if (inputText.charAt(i) == ' ') {
-                    encoded += "";
+                    encoded += " ";
                 }
                 else  {
                     int charPosition = alphabet.indexOf(inputText.charAt(i));
